@@ -32,7 +32,7 @@ public class Program1RuntimeAnalysis {
         Random r = new Random();
 
         //Test 1
-        int[] first = arrayBuilder("./src/main/java/testFiles/input_2k.txt");
+        int[] first = arrayBuilder("./src/main/java/testFiles_program1/input_2k.txt");
         System.out.println("Test 1 -> n=" + (first.length - 1));
         long start_1 = System.nanoTime();
         Program1.program1(first.length - 1, r.nextInt(1, first.length), first);
@@ -40,7 +40,7 @@ public class Program1RuntimeAnalysis {
         System.out.println();
 
         //Test 2
-        int[] second = arrayBuilder("./src/main/java/testFiles/input_4k.txt");
+        int[] second = arrayBuilder("./src/main/java/testFiles_program1/input_4k.txt");
         System.out.println("Test 2 -> n=" + (second.length - 1));
         long start_2 = System.nanoTime();
         Program1.program1(second.length - 1, r.nextInt(1, second.length), second);
@@ -48,7 +48,7 @@ public class Program1RuntimeAnalysis {
         System.out.println();
 
         //Test 3
-        int[] third = arrayBuilder("./src/main/java/testFiles/input_6k.txt");
+        int[] third = arrayBuilder("./src/main/java/testFiles_program1/input_6k.txt");
         System.out.println("Test 3 -> n=" + (third.length - 1));
         long start_3 = System.nanoTime();
         Program1.program1(third.length - 1, r.nextInt(1, third.length), third);
@@ -56,7 +56,7 @@ public class Program1RuntimeAnalysis {
         System.out.println();
 
         //Test 4
-        int[] fourth = arrayBuilder("./src/main/java/testFiles/input_8k.txt");
+        int[] fourth = arrayBuilder("./src/main/java/testFiles_program1/input_8k.txt");
         System.out.println("Test 4 -> n=" + (fourth.length - 1));
         long start_4 = System.nanoTime();
         Program1.program1(fourth.length - 1, r.nextInt(1, fourth.length), fourth);
@@ -65,7 +65,7 @@ public class Program1RuntimeAnalysis {
 
 
         //Test 5
-        int[] fifth = arrayBuilder("./src/main/java/testFiles/input_10k.txt");
+        int[] fifth = arrayBuilder("./src/main/java/testFiles_program1/input_10k.txt");
         System.out.println("Test 5 -> n=" + (fifth.length - 1));
         long start_5 = System.nanoTime();
         Program1.program1(fifth.length - 1, r.nextInt(1, fifth.length), fifth);
