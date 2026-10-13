@@ -63,7 +63,6 @@ public class Program1RuntimeAnalysis {
         System.out.println("Test 4 Elapsed Time: " + (System.nanoTime() - start_4));
         System.out.println();
 
-
         //Test 5
         int[] fifth = arrayBuilder("./src/main/java/testFiles_program1/input_10k.txt");
         System.out.println("Test 5 -> n=" + (fifth.length - 1));
