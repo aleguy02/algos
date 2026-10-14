@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.lang.Math;
 
-public class Program1 {
+class Program1 {
     public record Result(long minimumCost, ArrayList<Integer> indices) {}
 
     /**
@@ -14,7 +14,7 @@ public class Program1 {
      * @param costs array of costs of the panels
      * @return Result object containing the minimum total energy cost and the indices of the visited panels in increasing order(1-indexed, including n and excluding 0)
      */
-    public static Result program1(int n, int k, int[] costs) {
+    private static Result program1(int n, int k, int[] costs) {
         var minCost = 0;
         var indices = new ArrayList<Integer>();
         int i = 0;
