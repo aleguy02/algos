@@ -1,5 +1,3 @@
-package org.milestone1;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -22,9 +20,9 @@ class Program2 {
             return new Result(costs[costs.length-1], indices);
         }
         var p = 2;
-        for (int i = 1; i <= n; i++) {
+        for (int i = 1; i < n; i++) {
             if (costs[i-1] > costs[i]) {
-                p = i-1;
+                p = i;
                 break;
             }
         }
@@ -39,12 +37,12 @@ class Program2 {
             if (r > n) {
                 break;
             }
-            if (r < p) {
+            if (r <= p) {
                 continue;
             }
 
-            var leftSlice = Arrays.copyOfRange(costs, 0, l+1);
-            var rightSlice = Arrays.copyOfRange(costs, r, n+1);
+            var leftSlice = Arrays.copyOfRange(costs, 0, l);
+            var rightSlice = Arrays.copyOfRange(costs, r-1, n);
             Result leftResult = processLeft(leftSlice, k);
             Result rightResult = processRight(rightSlice, k, r);
 
@@ -58,11 +56,11 @@ class Program2 {
     }
 
     private static Result processLeft(int[] costs, int k) {
-        var minCost = 0;
+        long minCost = 0;
         var indices = new ArrayList<Integer>();
-        int i = costs.length-1;
+        int i = costs.length;
         while (i > 0) {
-            minCost += costs[i];
+            minCost += costs[i-1];
             indices.add(i);
             i-=k;
         }
@@ -71,17 +69,18 @@ class Program2 {
     }
 
     private static Result processRight(int[] costs, int k, int offset) {
-        var minCost = 0;
+        long minCost = 0;
         var indices = new ArrayList<Integer>();
         int i = 0;
-        int n = costs.length-1;
-        while (i < n) {
+        while (i < costs.length) {
             minCost += costs[i];
             indices.add(i+offset);
             i+=k;
         }
-        minCost += costs[n];
-        indices.add(n+offset);
+        if (indices.get(indices.size()-1) != offset + costs.length - 1) {
+            minCost += costs[costs.length-1];
+            indices.add(offset + costs.length - 1);
+        }
         return new Result(minCost, indices);
     }
 

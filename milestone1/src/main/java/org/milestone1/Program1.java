@@ -1,5 +1,3 @@
-package org.milestone1;
-
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.lang.Math;
@@ -21,7 +19,7 @@ class Program1 {
         while (i<n) {
             i+=k;
             i = Math.min(i, n);
-            minCost += costs[i];
+            minCost += costs[i-1];
             indices.add(i);
         }
         return new Result(minCost, indices);
