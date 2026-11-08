@@ -27,6 +27,8 @@ def program3(n: int, k: int, costs: List[int]) -> Tuple[int, List[int]]:
 
     totalCost = minimumOfPrevK + costs[n]
     path.append(n)
+    if path[0] == 0:
+        path = path[1:]
     return path, totalCost
 
 if __name__ == '__main__':
