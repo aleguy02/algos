@@ -14,12 +14,12 @@ def program3(n: int, k: int, costs: List[int]) -> Tuple[int, List[int]]:
     including n and excluding 0)
     """
     if n == 0:
-        return [0], 0
+        return 0, [0]
     
     minimumOfPrevK = float('inf')
     path = []
     for j in range(max(0, n-k), n):
-        pathToJ, costToJ = program3(j, k, costs)
+        costToJ, pathToJ = program3(j, k, costs)
 
         if costToJ < minimumOfPrevK:
             minimumOfPrevK = costToJ
@@ -29,7 +29,7 @@ def program3(n: int, k: int, costs: List[int]) -> Tuple[int, List[int]]:
     path.append(n)
     if path[0] == 0:
         path = path[1:]
-    return path, totalCost
+    return totalCost, path
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(

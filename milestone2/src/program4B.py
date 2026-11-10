@@ -14,11 +14,30 @@ def program4B(n: int, k: int, costs: List[int]) -> Tuple[int, List[int]]:
     int:  minimum total energy cost
     List[int]: the indices of the visited panels in increasing order(1-indexed, including n and excluding 0)
     """
-    ############################
-    # Add your code here
-    ############################
+    M = [None] * (n+1)
+    M[0] = 0
+    parent = [None] * (n+1)
 
-    return 0, [1, 2, 3] # replace with your code
+    for j in range (1, n+1):
+        minimumOfPrevK = float ('inf')
+        for p in range(max(0, j-k), j):
+            if M[p] < minimumOfPrevK:
+                minimumOfPrevK = M[p]
+                parent[j] = p
+        M[j] = minimumOfPrevK + costs[j]
+
+    path = backtrack4b(n, parent)
+    return (M[n], path)
+
+def backtrack4b (n: int, parent: List[int]) -> List[int]:
+    path = []
+    current = n
+    while current != 0:
+        path.append(current)
+        current = parent[current]
+    path.reverse()
+    return path    
+
 
 
 if __name__ == '__main__':
