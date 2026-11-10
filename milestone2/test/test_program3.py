@@ -1,4 +1,4 @@
-from milestone2.src.program3 import program3
+from program3 import program3
 
 
 def test_given():

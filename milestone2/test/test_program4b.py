@@ -1,4 +1,4 @@
-from milestone2.src.program4B import program4B
+from program4B import program4B
 
 def test_given():
     n = 7
