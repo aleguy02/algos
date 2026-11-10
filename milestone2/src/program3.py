@@ -13,7 +13,6 @@ def program3(n: int, k: int, costs: List[int]) -> Tuple[int, List[int]]:
     List[int]: the indices of the visited panels in increasing order(1-indexed,
     including n and excluding 0)
     """
-    print(".", end="")
     if n == 0:
         return 0, []
     
