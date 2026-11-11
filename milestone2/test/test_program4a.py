@@ -1,4 +1,4 @@
-from program4a import program4A
+from program4A import program4A
 
 def test_given():
     n = 7
